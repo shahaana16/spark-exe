@@ -29,6 +29,9 @@ s = s.replace(needle, needle + injection, 1)
 s = s.replace("if('serviceWorker' in navigator&&['http:','https:'].includes(location.protocol))",
               "if(!window.SparkAndroid&&'serviceWorker' in navigator&&['http:','https:'].includes(location.protocol))")
 js_file.write_text(s, encoding='utf-8')
+
+(root / 'android' / 'app' / 'src' / 'main' / 'res' / 'drawable').mkdir(parents=True, exist_ok=True)
+  
 shutil.copyfile(root / 'icons' / 'icon-512.png',
                 root / 'android' / 'app' / 'src' / 'main' / 'res' / 'drawable' / 'spark_icon.png')
 print('Android offline assets prepared; backup export wired to Android file save dialog.')
